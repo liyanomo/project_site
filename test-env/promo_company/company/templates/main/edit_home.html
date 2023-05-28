@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block head %}
+
+	{% endblock %}
+{% block content%}
+<br>
+<br>
+<br>
+<br>
+<form method="POST">
+    {% csrf_token %}
+    <div class="container">
+    <div class="card card-container">
+        <h6 class="card-title">Добавить дом к кампании:</h6>
+    {{form.house_camp}}
+        <h6 class="card-title">Добавить обход к кампании:</h6>
+    {{form.poll_camp}}
+        <h6 class="card-title">Добавить форму обхода к кампании:</h6>
+    {{form.poll_form_camp}}
+
+
+<br><div class="row"><button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" value="Submit">Добавить</button></div>
+</form>
+    </div>
+    </div>
+
+
+{% endblock %}

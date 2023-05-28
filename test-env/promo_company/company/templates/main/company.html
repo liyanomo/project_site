@@ -1,0 +1,25 @@
+{% extends "main/base.html" %}
+{% block title %}
+ 	<title> Кампании </title>
+{% endblock %}
+{% block content %}
+	<br>
+	<br>
+	<center><h2>Кaмпании</h2></center>
+	<br>
+	<br>
+	<center>
+	{% for el in data %}
+	<div class="card" style="width: 18rem;">
+  	<img src="..." class="card-img-top" alt="...">
+  	<div class="card-body">
+    <h5 class="card-title">{{el.name}}</h5>
+    <p class="card-text">{{el.house_list}}</p>
+    <a href="product/{{el.id_company}}" class="card-link">На страницу кампании</a>
+  	</div>
+	</div>  
+	<br>
+	{%endfor%} 
+	</center>
+
+{% endblock %} 
