@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+{% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block content%}
+<br>
+<br>
+<br>
+<div class="container">
+	<div class="card card-container">
+		<h6 class="card-title">Обходы:</h6>
+		{% for i in bupass %}
+		<a href="{% url 'showbupass' i.id_bupass %}">
+			<p class="card-text">{{i}}</p><br>
+		</a>
+		{% endfor %}
+	</div>
+</div>
+<br>
+<form method="POST">
+	{% csrf_token %}
+	<div class="container">
+		<div class="card card-container">
+			<br><label for="date">Дата обхода</label>{{form.date}}
+			<br><label for="time">Время обхода</label>{{form.time}}
+			<br><label for="door_open">Дверь открыли?</label>{{form.door_open}}
+			<br><label for="reaction">Реакция на обход</label>{{form.reaction}}
+			<br>
+			<br>
+			<div class="row">
+				<button class="btn btn-dark" type="submit" value="submit">Добавить</button>
+			</div>
+		</div>
+	</div>
+</form>
+
+{% endblock %}

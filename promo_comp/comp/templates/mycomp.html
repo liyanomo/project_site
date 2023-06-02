@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+{% endblock %}
+
+{% block content%}
+<br>
+<br>
+<br>
+<center>
+<h1>Мои кампании</h1>
+{% if request.method == "GET" %}
+	{% for i in comp %}
+		<div class="container">
+			<div class="card card-container"
+			style="width: 18rem;card-container">
+				<div class="card-body">
+					<h4 class="card-title">{{i.company_name}}</h4>
+					<p class="card-text">{{i.company_description}}</p>
+					<form action="{% url 'showcomp' i.id_company %}">
+						<button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Управление кампанией</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+{% endif %}
+<form action='createcomp'>
+	<button class="btn btn-dark" type="submit">Добавить кампанию</button>
+</form>
+</center>
+{% endblock %}

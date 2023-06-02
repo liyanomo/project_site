@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+{% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block content%}
+<br>
+<br>
+<div class="container">
+	<div class="card card-container">
+		<h6 class="card-title">Дoма:</h6>
+		{% for i in comp %}
+			<p class="card-text">{{i}}</p><br>
+
+		{% endfor %}
+	</div>
+<br>
+<form method="POST">
+	{% csrf_token %}
+	<div class="container">
+		<div class="card card-container">
+			<br><label for="address">Дoма:</label>{{form.address}}
+			<br>
+			<div class="row">
+				<button class="btn btn-dark" type="submit" value="submit">Добавить</button>
+			</div>
+		</div>
+	</div>
+</form>
+{% endblock %}

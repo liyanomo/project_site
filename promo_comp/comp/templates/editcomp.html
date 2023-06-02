@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+{% endblock %}
+
+{% block content%}
+<br>
+<br>
+<br>
+<form method="POST">
+	{% csrf_token %}
+	<div class="container">
+		<div class="card" style="width: 18rem;">
+>
+			<div class="card-body">
+				<h4 class="card-title">{{comp_data}}</h4>
+				<br>
+				<h4 class="card-title">{{form_comp.company_name}}</h4>
+				<p class="card-text">{{form_comp.company_description}}</p>
+			</div>
+			<button class="btn btn-dark" type="submit">Сохранить</button>
+		</div>
+	</div>
+</form>
+<center>
+<div class="container">
+	<div class="card card-container">
+		<h5 class="card-title">Добавить:</h5>
+		<form action="{% url 'homeedit' comp_data.id_company %}">
+			<br><button class="btn btn-dark" type="submit">Добавить дом</button>
+		</form>
+		<form action="{% url 'bupassedit' comp_data.id_company %}">
+			<br><button class="btn btn-dark">Добавить обходы</button>
+		</form>
+	</div>
+</div>
+</center>
+{% endblock %}

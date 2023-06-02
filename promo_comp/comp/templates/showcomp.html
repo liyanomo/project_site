@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+{% endblock %}
+
+{% block content%}
+<center>
+
+<br>
+<br>
+{% for i in data %}
+<center>
+<div class="container">
+	<div class="row">
+		<!--Описание кампании-->
+		<div class="col-sm">
+			<center>
+			<div class="card card-container">
+				<center>
+				<div class="card">
+					<h4 class="card-title">{{ i.company_name }}</h4>
+					<p class="card-text">{{i.company_description}}</p>
+				</div>
+				</center>
+			</div>
+			</center>
+		</div>
+		</center>
+		<div class="col-sm">
+			
+
+				
+				</div>
+		</div>
+		<div class="col-sm">
+	
+	</div>
+</center>
+	<center>
+	<form action="{% url 'editcomp' i.id_company %}">
+		<button class="btn btn-dark" type="submit"> Редактировать</button>
+	</form>
+	</center>
+</div>
+
+{% endfor %}
+
+{% endblock %}
